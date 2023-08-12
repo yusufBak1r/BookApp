@@ -62,10 +62,10 @@
             filePath = "MyProject/view/home.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "home"
+            landmarkType = "14">
             <Locations>
                <Location
                   uuid = "6B4475CB-4E36-4AB2-9DAA-A69F0521BAE2 - 4275ad107bdf50a1"

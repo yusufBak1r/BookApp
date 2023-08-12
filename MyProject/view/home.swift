@@ -8,12 +8,37 @@
 import SwiftUI
 
 struct home: View { @State  var searchText = ""
+    @State private var activetag :String = "öykü"
     @State private var isFavorite = false
+    @Namespace private var animation
     @State private var isShowingSheet = false
     var body: some View {
         NavigationStack {
             VStack {
-//                seacrhbar(text: $searchText)
+                ScrollView  (.horizontal,showsIndicators: false) {
+                                HStack(spacing: 15){
+                                    ForEach (list,id:\.self){lis in
+                                        Text(lis).font(.caption).padding(.horizontal,12).padding(.vertical,6).background {
+                                            if activetag == lis {
+                                                Capsule().fill(Color.blue)
+                                                    .matchedGeometryEffect(id: "ACTIVETAB", in: animation)
+                                            }
+                                            else {
+                                                Capsule().fill(.gray.opacity(0.2))
+                                            }
+                                        }.foregroundColor(activetag == lis ? .white : .gray)
+                                            .onTapGesture {
+                                                withAnimation(.interactiveSpring(response: 0.3,dampingFraction: 0.7,blendDuration: 0.7)) {
+                                                    activetag = lis
+                                                }
+                                                
+                                            }
+                                    }
+                                    
+                                }}
+                            .frame(height: 50).padding(.horizontal)
+
+               
                 List (0..<4) { item in
                     
                     HStack(spacing: 15) {
@@ -76,3 +101,4 @@ struct home_Previews: PreviewProvider {
         home()
     }
 }
+var list :[String] = ["öykü","roman","piskoloji","hikaye","bilimkurugu"]
