@@ -47,33 +47,35 @@ struct home: View { @State  var searchText = ""
                             .frame(height: 150)
                             .cornerRadius(4)
                             .padding(.vertical,4)
-                        VStack(alignment: .leading, spacing:15) {
-                            Text("mkeameamkeameakmeamkekmakemlikamiemaaeaeaeaeeaaeeaeeiaeeiaaea").fontWeight(.semibold)
-                                .lineLimit(3).minimumScaleFactor(0.5)
+                       
+                        VStack(alignment: .leading, spacing:5) {
+                        
+                            Text("Kitap ismi").fontWeight(.semibold)
+                               .minimumScaleFactor(0.5)
                             
                             
                             Text("january 1,2023").font(.subheadline).foregroundColor(.secondary)
-                            HStack (spacing: 40){
+                            HStack (spacing: 30) {
+          
                                 Button(action: {
-                                   isShowingSheet = true
+                                    isShowingSheet.toggle()
                                 }, label: {
-                                    Text("Sepete Ekle").foregroundColor(.black)
-                                        .frame(width:93 ,height:35 ).background(.brown).cornerRadius(5)
+                                    Image("cart.circle")
+                                    Text("Sepete Ekle").foregroundColor(.white)
+                                        .frame(width:93 ,height:35 ).background(.blue).cornerRadius(5).shadow(color: Color.white.opacity(0.3), radius: 5,x:0 ,y: 5).sheet(isPresented: $isShowingSheet, content: {
+                                           
+                                            MyProject.sheet()
+                                        })
+                                  
                                         
-                                }).sheet(isPresented:$isShowingSheet, content: {
-                                    myBooks()
+
                                 })
+                                //HStack
+                 
+                               
+                                Text("20 TL").font(.callout).foregroundColor(.red).lineLimit(0)
                                 
                                
-                               
-                                Text("20 TL").font(.callout).foregroundColor(.blue)
-                                
-                                Button (action: {
-                                    isFavorite.toggle()
-                                }, label: {
-                                    Image(systemName: "heart.fill")
-                                        .foregroundColor(isFavorite ? .white : .red)
-                                })
                                
                                 
                                 
@@ -84,7 +86,9 @@ struct home: View { @State  var searchText = ""
                         }
                         
                         
+                        
                     }
+                    
                 }
                 .navigationBarTitle("Home Page").searchable(text: $searchText)
                 
@@ -102,3 +106,61 @@ struct home_Previews: PreviewProvider {
     }
 }
 var list :[String] = ["öykü","roman","piskoloji","hikaye","bilimkurugu"]
+
+struct sheet : View {
+@State private var isFavorite = false
+    var body: some View {
+        VStack{
+           
+            HStack(alignment: .bottom){
+                Image("Budala").resizable().scaledToFit().frame(width: 180,height: 200)
+                
+                    .padding()
+              
+               
+               
+                Text("wwwwwwwwwwwwwwşwwwwwwwwwwaaaaaaakaemkiakelmaemlakimlkeamiekmlakiemlaklmiekaiemeikawwwwwwwww").foregroundColor(.white).font(.system(size: 15)).padding(.bottom,75).lineLimit(7).padding(.trailing)
+            
+                   
+                
+                Spacer()
+               
+                
+                
+            }
+            
+                 Text("About Book")
+                     .foregroundColor(.white)
+                     .fontWeight(.bold)
+                     
+                     .padding(.horizontal,50)
+                     .background(Color("color1"))
+                     .clipShape(Capsule())
+                     .shadow(color: Color.white.opacity(0.7), radius: 5,x:0 ,y: 5).padding(.trailing,200)
+            Capsule().foregroundColor(.red).frame(width: 400,height: 5).shadow(color: Color.white, radius: 3, x: 0, y: 2)
+            Text("aaaaaaaaaaaaaaaaa").lineLimit(10).padding(.trailing,230).font(.caption).foregroundColor(.white)
+            Spacer()
+            
+            
+        }
+       
+        ZStack(){
+            Circle().fill(.white).frame(width: 60,height: 60).padding(.trailing)
+           Button (action: {
+               isFavorite.toggle()
+           }, label: {
+               Image(systemName: "heart.fill").padding(.trailing).foregroundColor(isFavorite ? .blue : .red)
+           })
+            
+            
+        }
+        Text("Favorilere ekle").font(.headline).foregroundColor(.
+                                                                white).padding(.trailing)
+                
+            
+        }
+        
+   
+        
+    }
+
