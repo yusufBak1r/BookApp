@@ -11,6 +11,7 @@ import SwiftUI
 struct HomePage: View {
     @State private var isActivated = false
     @ObservedObject var menuVM = MenuViewModel()
+    
     var body: some View {
         
         ZStack {
@@ -39,5 +40,6 @@ struct HomePage: View {
 struct HomePage_Previews: PreviewProvider {
     static var previews: some View {
         HomePage()
+            
     }
 }

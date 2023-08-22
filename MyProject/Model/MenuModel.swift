@@ -12,10 +12,11 @@ import SwiftUI
 class MenuViewModel: ObservableObject {
     @Published var menus: [MenuItem] = [
         MenuItem(color: .red, icon: "house.fill", menuView: AnyView(home()), selected: true),
-        MenuItem(color: .blue, icon: "book.fill", menuView: AnyView(myBooks()), selected: false),
-        MenuItem(color: .green, icon: "heart.fill", menuView: AnyView(Favorite()), selected: false),
-        MenuItem(color: .orange, icon: "list.bullet.circle", menuView: AnyView(Categories()), selected: false),
-//        MenuItem(color: .yellow, icon: "5.circle.fill", menuView: AnyView(Text("Fifth View")), selected: false)
+       
+//        MenuItem(color: .green, icon: "heart.fill", menuView: AnyView(Favorite()), selected: false),
+        MenuItem(color: .orange, icon: "list.bullet.circle", menuView: AnyView(Cart(product: Booklist[0])), selected: false),
+      MenuItem(color: .yellow, icon: "5.circle.fill", menuView: AnyView(Text("Fifth View")), selected: false)
+// MenuItem(color: .blue, icon: "book.fill", menuView: AnyView(()), selected: false),
     ]
     
     var selectedMenu: MenuItem {
