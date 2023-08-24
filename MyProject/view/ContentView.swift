@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         
         Home().preferredColorScheme(ColorScheme.dark)
-       
+            .environmentObject(CartManager())
     
     }
 

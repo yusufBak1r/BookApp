@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomePage: View {
     @State private var isActivated = false
+    @EnvironmentObject var CartManager :CartManager
     @ObservedObject var menuVM = MenuViewModel()
     
     var body: some View {
@@ -40,6 +41,8 @@ struct HomePage: View {
 struct HomePage_Previews: PreviewProvider {
     static var previews: some View {
         HomePage()
+            .environmentObject(CartManager())
+            
             
     }
 }

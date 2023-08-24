@@ -14,7 +14,7 @@ struct Book :Identifiable{
     var favorite : Bool
     var about:String
     var price:Int
-    var isSwiped :Bool
+   
    
    
 
@@ -22,9 +22,9 @@ struct Book :Identifiable{
 }
 var Booklist = [
 
-   Book(uothorname:"Dostoyevski" , bookname: "Budala",imagename: "Budala", favorite: false, about: "meakmimikmlekmliae", price: 30, isSwiped: false),
-   Book(uothorname:"Yaşarkemal" , bookname: "cakırcalıefe",imagename: "cakırcalıefe", favorite: false, about: "meakmimikmlekmliae", price: 20, isSwiped: false),
-   Book(uothorname:"Tolstoy" , bookname: "itiraflarım",imagename: "itiraflarım", favorite: false, about: "meakmimikmlekmliae", price: 40, isSwiped: false),
-   Book(uothorname:"MattHaıg" , bookname: "MattHaıg",imagename: "MattHaıg", favorite: false, about: "meakmimikmlekmliae", price: 50, isSwiped: false),
-   Book(uothorname: "Adam faver", bookname: "olasılıksız", imagename: "olasılıksız", favorite: false, about: "aemamekli", price: 100, isSwiped: false)
+   Book(uothorname:"Dostoyevski" , bookname: "Budala",imagename: "Budala", favorite: false, about: "meakmimikmlekmliae", price: 30),
+   Book(uothorname:"Yaşarkemal" , bookname: "Çakırçalıefe",imagename: "cakırcalıefe", favorite: false, about: "meakmimikmlekmliae", price: 20),
+   Book(uothorname:"Tolstoy" , bookname: "İtiraflarım",imagename: "itiraflarım", favorite: false, about: "meakmimikmlekmliae", price: 40),
+   Book(uothorname:"MattHaıg" , bookname: "MattHaıg",imagename: "MattHaıg", favorite: false, about: "meakmimikmlekmliae", price: 50),
+   Book(uothorname: "Adam faver", bookname: "Olasılıksız", imagename: "olasılıksız", favorite: false, about: "aemamekli", price: 100)
 ]
