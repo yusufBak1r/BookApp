@@ -9,6 +9,7 @@ import Foundation
 class CartManager:ObservableObject {
     @Published private (set) var products:[Book] = []
     @Published private (set) var Total :Int = 0
+    @Published var likedProduct : [Book] = []
    
     
     func addToCart (product :Book) {
@@ -21,4 +22,7 @@ class CartManager:ObservableObject {
         Total -= product.price
     }
 
+
+    
+    
 }

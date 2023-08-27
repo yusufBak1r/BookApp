@@ -27,7 +27,7 @@ struct productCart: View {
                 
             }.frame(width:175 ,height: 225).cornerRadius(3)
             Button {
-                print("çalışıyor")
+                
                 cartManger.addToCart(product: product)
             }label: {
                 Image(systemName: "plus.circle").padding(10).foregroundColor(.white).background(.black ).cornerRadius(50).padding()

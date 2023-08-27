@@ -9,6 +9,7 @@ import SwiftUI
 
 struct home: View {
     var colums = [GridItem(.adaptive(minimum: 160),spacing: 20)]
+    @State private var search :String = ""
     @StateObject var cartManager = CartManager()
     var slider:[String] = ["cakırcalıefe","itiraflarım","MattHaıg","olasılıksız"]
     @State private var currentIndex = 2
@@ -21,15 +22,23 @@ struct home: View {
                 VStack {
                     ActiveTag()
                     HStack {
-                        Text("Populer Kitaplar").font(.system(size: 20).weight(.heavy)).foregroundColor(Color.yellow).padding(.leading)
+                        Text("Populer Kitaplar").font(.system(size: 20).weight(.heavy)).foregroundColor(.white).padding(.leading)
                        Spacer()
                         
                     }.frame(height:30)
                     Imagesliderview().padding(.trailing,100)
-                   
+                    ractagle()
+
+                  
                         LazyVGrid(columns: colums) {
                             ForEach(Booklist,id: \.id) { product in
-                              productCart(product: product)
+                             
+                                NavigationLink {
+                                DetailScreen(modelbook: product)
+                                    
+                                }label: {
+                                    productCart(product: product)
+                                }
                                     
                             }.environmentObject(cartManager)
                         }.padding()
@@ -51,11 +60,12 @@ struct home: View {
                       
             }
             }
+           
                 }
-                    
+      
                     
                 
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(StackNavigationViewStyle()).searchable(text: $search, prompt: "Seacrh")
          
                 
             }
@@ -67,7 +77,9 @@ struct home: View {
 
 struct home_Previews: PreviewProvider {
     static var previews: some View {
-        home()
+    home()
+        
+   
             .environmentObject(CartManager())
     }
 }
@@ -134,6 +146,19 @@ struct ActiveTag: View {
                 
             }}
         .padding(.horizontal)
+    }
+}
+
+
+struct ractagle: View {
+    var body: some View {
+        HStack(spacing: 15){
+            Rectangle().fill(Color("color2")).frame(height: 4)
+            Text ("Roman ").foregroundColor(.white)
+            Rectangle().fill(Color("color2")).frame(height: 4)
+
+            
+        }
     }
 }
 

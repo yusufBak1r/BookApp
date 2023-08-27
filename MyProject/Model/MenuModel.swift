@@ -13,10 +13,8 @@ class MenuViewModel: ObservableObject {
    
     @Published var menus: [MenuItem] = [
         MenuItem(color: .red, icon: "house.fill", menuView: AnyView(home()), selected: true),
-       
-//        MenuItem(color: .green, icon: "heart.fill", menuView: AnyView(Favorite()), selected: false),
-//        MenuItem(color: .orange, icon: "list.bullet.circle", menuView: AnyView(CartProductView(product: Booklist[2])), selected: false),
-      MenuItem(color: .yellow, icon: "5.circle.fill", menuView: AnyView(Text("Fifth View")), selected: false)
+       MenuItem(color: .green, icon: "heart.fill", menuView: AnyView(Favorite()), selected: false),
+      MenuItem(color: .yellow, icon: "figure.wave", menuView: AnyView(Text("Profile")), selected: false)
 // MenuItem(color: .blue, icon: "book.fill", menuView: AnyView(()), selecannot convert value of type 'Published<[Book]>.Publisher' to expected argument type 'Book'ted: false),
     ]
     

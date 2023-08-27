@@ -22,9 +22,13 @@ struct Book :Identifiable{
 }
 var Booklist = [
 
-   Book(uothorname:"Dostoyevski" , bookname: "Budala",imagename: "Budala", favorite: false, about: "meakmimikmlekmliae", price: 30),
-   Book(uothorname:"Yaşarkemal" , bookname: "Çakırçalıefe",imagename: "cakırcalıefe", favorite: false, about: "meakmimikmlekmliae", price: 20),
+   Book(uothorname:"Isaacasımov" , bookname: "Isaacasımov",imagename: "Isaacasımov", favorite: false, about: "meakmimikmlekmliae", price: 30),
+   Book(uothorname:"Yaşarkemal" , bookname: "Çakırçalıefe",imagename: "cakırcalıefe", favorite: false, about: "meakmüüüüüüüüüütüktkttmtkmtktkltkmtklmttzdakükrdükküttkükzztükzbtrrümztkkümaükmtimikmlekmliae", price: 20),
    Book(uothorname:"Tolstoy" , bookname: "İtiraflarım",imagename: "itiraflarım", favorite: false, about: "meakmimikmlekmliae", price: 40),
    Book(uothorname:"MattHaıg" , bookname: "MattHaıg",imagename: "MattHaıg", favorite: false, about: "meakmimikmlekmliae", price: 50),
-   Book(uothorname: "Adam faver", bookname: "Olasılıksız", imagename: "olasılıksız", favorite: false, about: "aemamekli", price: 100)
+   Book(uothorname: "dostoevski", bookname: "dostoevski", imagename: "dostoevski", favorite: false, about: "aemamekli", price: 100),
+   Book(uothorname: "Dostoveski", bookname: "Dostoveski", imagename: "Dostoveski", favorite: false, about: "aemamekli", price: 100)
+  
+   
+   
 ]

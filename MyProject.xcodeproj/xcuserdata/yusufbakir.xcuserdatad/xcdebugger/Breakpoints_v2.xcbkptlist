@@ -52,53 +52,5 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6B4475CB-4E36-4AB2-9DAA-A69F0521BAE2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyProject/view/home.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "6B4475CB-4E36-4AB2-9DAA-A69F0521BAE2 - 4275ad107bdf50a1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyProject.home.body.getter : some"
-                  moduleName = "MyProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yusufbakir/Desktop/ios/MyProject/MyProject/view/home.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "692">
-               </Location>
-               <Location
-                  uuid = "6B4475CB-4E36-4AB2-9DAA-A69F0521BAE2 - 4275ad107bdf50ff"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyProject.home.body.getter : some"
-                  moduleName = "MyProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yusufbakir/Desktop/ios/MyProject/MyProject/view/home.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "692">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

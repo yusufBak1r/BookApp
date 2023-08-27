@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SelectidMenuButton: View {
     var menuItem:MenuItem
+    @EnvironmentObject var cartManager :CartManager
     @Binding var isActivated :Bool
     var body: some View {
         Circle()
@@ -28,6 +29,7 @@ struct MenuButton: View {
     var currentItemIndex: Int
     var body: some View {
         let menuItem = menuVM.menus[currentItemIndex]
+            
         return Circle()
             .fill(menuItem.color)
             .frame(width: isActivated ? 50 : 20, height: isActivated ? 50 : 20)
@@ -35,9 +37,11 @@ struct MenuButton: View {
             .overlay(Image(systemName: menuItem.icon))
             .foregroundColor(.white)
             .offset(x: isActivated ? calcOffset().x : 0, y: isActivated ? calcOffset().y : -10) // Update offset when activated
+            
             .onTapGesture {
                 self.isActivated.toggle()
                 self.updateSelected()
+                    
             }
     }
     
@@ -45,6 +49,7 @@ struct MenuButton: View {
         let menuItem = menuVM.menus[currentItemIndex]
         for i in 0..<menuVM.menus.count {
             menuVM.menus[i].selected = menuItem.id == menuVM.menus[i].id
+                
         }
 }
     func calcOffset() -> (x: CGFloat, y: CGFloat) {

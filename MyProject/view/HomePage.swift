@@ -17,6 +17,7 @@ struct HomePage: View {
         
         ZStack {
             menuVM.selectedMenu.menuView
+                
             ZStack {
                 Color.black.opacity(isActivated ? 0.2 : 0)
                 VStack {
@@ -27,8 +28,11 @@ struct HomePage: View {
                                        menuVM: self.menuVM,
                                        currentItemIndex: i
                             )
+                            
                         }
+                        
                         SelectidMenuButton(menuItem: menuVM.selectedMenu, isActivated: self.$isActivated)
+                            
                     }
                 }
             }
