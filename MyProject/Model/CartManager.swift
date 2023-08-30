@@ -17,12 +17,17 @@ class CartManager:ObservableObject {
         Total += product.price
         
     }
-    func removeFromcart(product:Book)  {
-        products.filter{$0.id != product.id}
+    func removeFromcart(_ product:Book)  {
+        if let index = products.firstIndex(where: { $0.id == product.id }) {
+            products.remove(at: index)
+        }
         Total -= product.price
     }
-
-
-    
+    func isliked(modelbook:Book) -> Bool{
+        return likedProduct.contains{product in
+            return modelbook.id == product.id
+        }
+    }
+        
     
 }

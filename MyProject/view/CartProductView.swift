@@ -9,20 +9,29 @@ import SwiftUI
 
 struct CartProductView: View {
     @EnvironmentObject var cartManager :CartManager
-   
+    
     var body: some View {
         ScrollView {
-            if cartManager.products.count == 0 {
-                Text("işlem başarısız")
-                
-               
-            }else {
-                Text("işlem başarılı")
+            if cartManager.products.count > 0 {
+                ForEach(cartManager.products,id: \.id) {proudct in
+                    ProductRow(product: proudct)
+                }
+                HStack{
+                    Text("Sepetinizin Toplam Tutarı :")
+                    Spacer()
+                    Text("\(cartManager.Total).00 TL").bold()
+                    
+                }
+                .padding()
+    
+            }else{
+                Text("Sepetiniz Boş")
             }
-        }.navigationTitle(Text("My Cart"))
-            .padding(.top)
-    }
-}
+            
+  
+            
+        }.navigationTitle("My Cart").padding(.top)
+    }}
 struct CartProductView_Previews: PreviewProvider {
     
     static var previews: some View {
@@ -33,5 +42,4 @@ struct CartProductView_Previews: PreviewProvider {
         
     }
 }
-
 
