@@ -23,9 +23,13 @@ struct Favorite: View {
                 }.padding()
                 
             }else{
-                Text("Favorilerinizde Ürün bulunmamaktadır").foregroundColor(.white)
+                VStack{
+                    Text("Favorilerinizde Ürün bulunmamaktadır").foregroundColor(Color("color1"))
+                   
+                }
+                
             }
-        }.navigationTitle("Favoriler").padding(.top).foregroundColor(.white)
+        }
     }
 }
     struct Favorite_Previews: PreviewProvider {
@@ -40,10 +44,10 @@ struct Favorite: View {
             
             HStack(spacing: 15){
                 Image(product.imagename).resizable().aspectRatio( contentMode: .fit).frame(width: 80).cornerRadius(10)
-                VStack(alignment: .leading, spacing: 10){
-                    Text(product.bookname).bold()
+                VStack(alignment: .leading, spacing: 20){
+                    Text(product.bookname).bold().foregroundColor(.white)
                     
-                    Text(product.uothorname).bold()
+                    Text(product.uothorname).bold().foregroundColor(.white)
                     
                 }
                 Spacer()

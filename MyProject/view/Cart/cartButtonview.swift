@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct cartButtonview: View {
+    @ObservedObject var menuVM = MenuViewModel()
     var numberOfProduct :Int
     @EnvironmentObject var cartManager: CartManager
     var body: some View {
@@ -15,6 +16,7 @@ struct cartButtonview: View {
             Image(systemName: "cart").padding(.top,5)
             if numberOfProduct > 0 {
                 Text("\(numberOfProduct)").font(.caption2).bold().foregroundColor(.white).frame(width:15 ,height: 15).background(Color(hue: 1.0, saturation: 0.89, brightness: 0.835)).cornerRadius(15)
+               
             }
         }
     }

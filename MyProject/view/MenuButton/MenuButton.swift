@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SelectidMenuButton: View {
     var menuItem:MenuItem
-    @EnvironmentObject var cartManager :CartManager
+    @ObservedObject var cartManager = CartManager()
     @Binding var isActivated :Bool
     var body: some View {
         Circle()
@@ -49,6 +49,8 @@ struct MenuButton: View {
         let menuItem = menuVM.menus[currentItemIndex]
         for i in 0..<menuVM.menus.count {
             menuVM.menus[i].selected = menuItem.id == menuVM.menus[i].id
+            
+                
                 
         }
 }

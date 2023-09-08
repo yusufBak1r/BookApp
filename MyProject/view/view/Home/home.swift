@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct home: View {
+   
+    
     var colums = [GridItem(.adaptive(minimum: 160),spacing: 20)]
-    @State private var search :String = ""
+    @State private var searchText = ""
     @StateObject var cartManager = CartManager()
     var slider:[String] = ["cakırcalıefe","itiraflarım","MattHaıg","olasılıksız"]
     @State private var currentIndex = 2
-   
+    
+
     var body: some View {
         
         NavigationView {
@@ -31,7 +34,7 @@ struct home: View {
 
                   
                         LazyVGrid(columns: colums) {
-                            ForEach(Booklist,id: \.id) { product in
+                            ForEach(filteredProducts,id: \.id) { product in
                              
                                 NavigationLink {
                                 DetailScreen(modelbook: product)
@@ -65,11 +68,26 @@ struct home: View {
       
                     
                 
-        .navigationViewStyle(StackNavigationViewStyle()).searchable(text: $search, prompt: "Seacrh")
+        .navigationViewStyle(StackNavigationViewStyle()).searchable(text: $searchText, prompt: "Seacrh")
          
                 
             }
-
+   
+        var filteredProducts: [Book] {
+                if searchText.isEmpty {
+                    return Booklist
+                } else {
+                    return Booklist.filter { product in
+                        product.bookname.lowercased().contains(searchText.lowercased())
+                    }
+                }
+            
+        
+        
+        
+//        navigationview brackets
+    }
+    
             }
         
 

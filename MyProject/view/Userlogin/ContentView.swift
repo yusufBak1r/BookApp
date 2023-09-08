@@ -10,10 +10,10 @@ import FirebaseAuth
 import Firebase
 
 struct ContentView: View {
-   
+    
     var body: some View {
         
-        Home().preferredColorScheme(ColorScheme.dark)
+        Home().preferredColorScheme(ColorScheme(.dark))
             .environmentObject(CartManager())
     
     }
@@ -153,6 +153,7 @@ struct login:View {
                             Spacer(minLength: 0)
                         Button( action:
                                     {
+                            
                         })
                         
                         {
@@ -180,7 +181,9 @@ struct login:View {
                 .padding(.horizontal,20)
                 
                 Button ( action: {
-                 showNewPage = true
+                  
+                    signIn(email: email, password: pass)
+                    
                 })
                 {
                    
@@ -204,6 +207,24 @@ struct login:View {
                 .offset(y:25 )
                 .opacity(self.index == 0 ? 1 : 0 )
             }
+        }
+    }
+   
+    func signIn(email: String, password: String)  {
+            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+                if let error = error {
+                    // Giriş başarısız oldu
+                    print("Giriş başarısız: \(error.localizedDescription)")
+                        showNewPage = false
+                    alert = true
+                    allertMesage = "Giriş  başarısız Tekrar deneyiniz"
+                } else {
+                    // Giriş başarılı oldu, user değişkeniyle kullanıcı bilgilerine erişebilirsiniz
+                    print("Giriş başarılı: \(user?.user.uid ?? "")")
+                       showNewPage = true
+                }
+            
+        
         }
     }
 }
@@ -296,41 +317,7 @@ struct SignUP :View {
             .padding(.horizontal,20)
             
             Button ( action: {
-                if email.isValidEmail {
-                    if email.isEmpty || pass.isEmpty && Repass.isEmpty  {
-                        
-                        alert = true
-                     alertmessage = "E-Posta Ve Parolayı Doldurun! "
-                    }
-                    
-                    if pass != Repass {
-                        alert = true
-                        alertmessage =  "Oluşturduğunuz parolayı lütfen her iki alana aynı olacak şekilde yazınız."
-                    }
-                    if pass.isEmpty && Repass.isEmpty {
-                     alert = true
-                        
-                        
-                        Auth.auth().createUser(withEmail: email, password: pass) {AuthDataResult,error in
-                            if let auth = AuthDataResult {
-                                print(auth)
-                            }
-                            if let error = error {
-                                print(error)
-                                print("hatta")
-                                return
-                            }
-                            
-                        }
-                        
-                    }
-                    
-                 
-                }else {
-                    alert = true
-                    alertmessage = "Alanları Doldurunuz !"
-                }
-          
+               SıgnUp()
             }) {
                 Text("Sing Up")
                     .foregroundColor(.white)
@@ -347,6 +334,40 @@ struct SignUP :View {
             .offset(y:25)
             .opacity(self.index == 1 ? 1 :0)
         }
+    }
+    
+    func  SıgnUp () {
+        if email.isValidEmail {
+            if   Repass == pass  {
+                
+                    Auth.auth().createUser(withEmail: email, password: pass) {AuthDataResult,error in
+                        if let auth = AuthDataResult {
+                            print(auth)
+                        }
+                        if let error = error {
+                            print(error)
+                            print("hatta")
+                            return
+                        }
+                        
+                        alert = true
+                        alertmessage = "kayıt işleminiz başarıyla yapılmıştır"
+            }
+               
+                
+            }else{
+                alert = true
+                alertmessage = "Şifrelerininiz uyuşmuyor tekrar deneyiniz"
+                
+            }
+           
+            
+         
+        }else {
+            alert = true
+            alertmessage = "Alanları Doldurunuz!"
+        }
+  
     }
 }
 struct CShape1 :Shape {
@@ -367,3 +388,4 @@ extension String {
         return emailPred.evaluate(with: self)
     }
 }
+

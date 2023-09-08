@@ -14,7 +14,7 @@ class MenuViewModel: ObservableObject {
     @Published var menus: [MenuItem] = [
         MenuItem(color: .red, icon: "house.fill", menuView: AnyView(home()), selected: true),
        MenuItem(color: .green, icon: "heart.fill", menuView: AnyView(Favorite()), selected: false),
-      MenuItem(color: .yellow, icon: "figure.wave", menuView: AnyView(Text("Profile")), selected: false)
+      MenuItem(color: .yellow, icon: "figure.wave", menuView: AnyView(Profileview()), selected: false)
 // MenuItem(color: .blue, icon: "book.fill", menuView: AnyView(()), selecannot convert value of type 'Published<[Book]>.Publisher' to expected argument type 'Book'ted: false),
     ]
     
